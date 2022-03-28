@@ -1,0 +1,804 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C6DDA7E8-510A-44CA-807F-A29F09600D39}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>IntegracaoRockye</RootNamespace>
+    <AssemblyName>IntegracaoRockye</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <PublishUrl>C:\Users\Micael\Desktop\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>AC92FBB9C6F7049E33FC31BC0891A2B8D5C120F9</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>IntegracaoRockye_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=5.2.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>packages\AutoMapper.5.2.0\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="CuttingEdge.Conditions, Version=1.2.0.11174, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>packages\CuttingEdge.Conditions.1.2.0.0\lib\NET35\CuttingEdge.Conditions.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.Core, Version=4.3.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <HintPath>packages\DotNetOpenAuth.Core.4.3.4.13329\lib\net45-full\DotNetOpenAuth.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth, Version=4.3.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <HintPath>packages\DotNetOpenAuth.OAuth.Core.4.3.4.13329\lib\net45-full\DotNetOpenAuth.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth.Consumer, Version=4.3.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <HintPath>packages\DotNetOpenAuth.OAuth.Consumer.4.3.4.13329\lib\net45-full\DotNetOpenAuth.OAuth.Consumer.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.9.12.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>packages\MySql.Data.6.9.12\lib\net45\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Netco, Version=1.5.8.0, Culture=neutral, PublicKeyToken=9d732c15ac2ec2c9, processorArchitecture=MSIL">
+      <HintPath>packages\Netco.1.5.8\lib\net45\Netco.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="protobuf-net, Version=2.4.0.0, Culture=neutral, PublicKeyToken=257b51d87d2e4d67, processorArchitecture=MSIL">
+      <HintPath>packages\protobuf-net.2.4.4\lib\net40\protobuf-net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Net.Http, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Net.Http.2.0.20505.0\lib\net40\System.Net.Http.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Net.Http.2.0.20505.0\lib\net40\System.Net.Http.WebRequest.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App\APFuncoes\APFuncoes.cs" />
+    <Compile Include="App\APFuncoes\AP_agenda.cs" />
+    <Compile Include="App\APModels\APCidades.cs" />
+    <Compile Include="App\APModels\APColaboradores.cs" />
+    <Compile Include="App\APModels\APCondicaoPagamento.cs" />
+    <Compile Include="App\APModels\APConfirmaOperacao.cs" />
+    <Compile Include="App\APModels\APContas.cs" />
+    <Compile Include="App\APModels\APContatos.cs" />
+    <Compile Include="App\APModels\APDocumentos.cs" />
+    <Compile Include="App\APModels\APEstoque.cs" />
+    <Compile Include="App\APModels\APImagens.cs" />
+    <Compile Include="App\APModels\APItensPedido.cs" />
+    <Compile Include="App\APModels\APOcorrencias.cs" />
+    <Compile Include="App\APModels\APOcorrenciasContatos.cs" />
+    <Compile Include="App\APModels\APPedidos.cs" />
+    <Compile Include="App\APModels\APProdutos.cs" />
+    <Compile Include="App\APModels\APRotas.cs" />
+    <Compile Include="App\APModels\APRotasCidades.cs" />
+    <Compile Include="App\APModels\APTabelasdePrecos.cs" />
+    <Compile Include="App\APModels\APTabelasPrecosPersonalizada.cs" />
+    <Compile Include="App\APModels\APUsuariosSistema.cs" />
+    <Compile Include="Connected Services\MagentoHLGServices\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\MagentoProducaoServices\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Macro\MacroFuncoes.cs" />
+    <Compile Include="Macro\MacroWebService.cs" />
+    <Compile Include="Macro\Models\Listar\MacroDadosCliente.cs" />
+    <Compile Include="Macro\Models\MacroAtualizarPreco.cs" />
+    <Compile Include="Macro\Models\MacroCidades.cs" />
+    <Compile Include="Macro\Models\MacroEnviarDados.cs" />
+    <Compile Include="Macro\Models\MacroEspecificacoes.cs" />
+    <Compile Include="Macro\Models\Listar\MacroListarUsuarios.cs" />
+    <Compile Include="Macro\Models\Listar\MacroListarPedidos.cs" />
+    <Compile Include="Macro\Models\MacroGrupos.cs" />
+    <Compile Include="Macro\Models\MacroProdutos.cs" />
+    <Compile Include="Macro\Models\MacroEnderecos.cs" />
+    <Compile Include="Macro\Models\MacroEstoque.cs" />
+    <Compile Include="Macro\Models\MacroCredenciais.cs" />
+    <Compile Include="Macro\Models\MacroItens.cs" />
+    <Compile Include="Macro\Models\MacroListar.cs" />
+    <Compile Include="Macro\Models\MacroPedido.cs" />
+    <Compile Include="Macro\Models\MacroPrecos.cs" />
+    <Compile Include="Macro\Models\MacroUsuarios.cs" />
+    <Compile Include="Macro\Models\MacroProdutosVariacoes.cs" />
+    <Compile Include="Macro\Models\MacroVariacoes.cs" />
+    <Compile Include="Magento\FuncoesMagento.cs" />
+    <Compile Include="Magento\Models\MagentoProdutos.cs" />
+    <Compile Include="Magento\Models\MagentoWebService.cs" />
+    <Compile Include="MundoWine\Models\EstoqueMundoWine.cs" />
+    <Compile Include="MundoWine\Models\NFeMundoWine.cs" />
+    <Compile Include="MundoWine\Models\PrecoMundoWine.cs" />
+    <Compile Include="MundoWine\Models\RetornoErro.cs" />
+    <Compile Include="MundoWine\Models\RetornoMundoWine.cs" />
+    <Compile Include="MundoWine\MundoWineFuncoes.cs" />
+    <Compile Include="MundoWine\MundoWineWebServices.cs" />
+    <Compile Include="Rocky\Estoque\ConfiguracoesMdb.cs" />
+    <Compile Include="Rocky\Model\RKBrand.cs" />
+    <Compile Include="Rocky\Model\RKConfigurations.cs" />
+    <Compile Include="Rocky\Model\RKProdutosUpdate.cs" />
+    <Compile Include="Rocky\Model\RKRetProduct.cs" />
+    <Compile Include="Rocky\Model\RKSku_V2.cs" />
+    <Compile Include="Rocky\Model\RKVariation.cs" />
+    <Compile Include="Rocky\RKFuncoes.cs" />
+    <Compile Include="Rocky\RKConectionWebService.cs" />
+    <Compile Include="Rocky\V2Model\RKProduct_variationInsertV2.cs" />
+    <Compile Include="Rocky\V2Model\RKProduct_variationV2.cs" />
+    <Compile Include="Rocky\V2Model\RKRetornoCadastroProduto.cs" />
+    <Compile Include="Rocky\V2Model\RKRetornoCadastroVariacaoProduto.cs" />
+    <Compile Include="Tiny\Models\ContatoTiny.cs" />
+    <Compile Include="Tiny\Models\ErrosTiny.cs" />
+    <Compile Include="Tiny\Models\EstoqueTiny.cs" />
+    <Compile Include="Tiny\Models\ItensPedidoTiny.cs" />
+    <Compile Include="Tiny\Models\ItensTiny.cs" />
+    <Compile Include="Tiny\Models\MarcadoresPedidoTiny.cs" />
+    <Compile Include="Tiny\Models\MarcadoresTiny.cs" />
+    <Compile Include="Tiny\Models\ParcelasPedidoTiny.cs" />
+    <Compile Include="Tiny\Models\ParcelasTiny.cs" />
+    <Compile Include="Tiny\Models\PedidoTiny.cs" />
+    <Compile Include="Tiny\Models\RetornoContatoTiny.cs" />
+    <Compile Include="Tiny\Models\RetornoPedidoTiny.cs" />
+    <Compile Include="Tiny\Models\RetornoTiny.cs" />
+    <Compile Include="Tiny\TinyWebServices.cs" />
+    <Compile Include="Tray\Models\Listar\TrayProductsSoldListar.cs" />
+    <Compile Include="Tray\Models\TrayCoupon.cs" />
+    <Compile Include="Tray\Models\TrayCustomer.cs" />
+    <Compile Include="Tray\Models\Listar\TrayOrdersListar.cs" />
+    <Compile Include="Tray\Models\Listar\TrayPaginacao.cs" />
+    <Compile Include="Tray\Models\Listar\TrayPaging.cs" />
+    <Compile Include="Tray\Models\Listar\TrayProductsListar.cs" />
+    <Compile Include="Tray\Models\Listar\TraySort.cs" />
+    <Compile Include="Tray\Models\Listar\TrayVariantsListar.cs" />
+    <Compile Include="Tray\Models\TrayAuth.cs" />
+    <Compile Include="Tray\Models\TrayBrand.cs" />
+    <Compile Include="Tray\Models\TrayOrder.cs" />
+    <Compile Include="Tray\Models\TrayProduct.cs" />
+    <Compile Include="Tray\Models\TrayProductsSold.cs" />
+    <Compile Include="Tray\Models\TraySku.cs" />
+    <Compile Include="Tray\Models\TrayVariant.cs" />
+    <Compile Include="Tray\TrayFuncoes.cs" />
+    <Compile Include="Tray\TrayRetorno.cs" />
+    <Compile Include="Tray\TrayWebServices.cs" />
+    <Compile Include="Versatil\DB\DadosConfiguracao.cs" />
+    <Compile Include="Versatil\DB\DBConnectionMySql.cs" />
+    <Compile Include="Versatil\Funcoes\DAOContatos.cs" />
+    <Compile Include="Versatil\Funcoes\DAOGrupos.cs" />
+    <Compile Include="Versatil\Funcoes\DAOLogDB.cs" />
+    <Compile Include="Rocky\DB\PedidosAdd.cs" />
+    <Compile Include="Versatil\DB\UltimosCodigosDB.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLoad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLoad.Designer.cs">
+      <DependentUpon>frmLoad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLogError.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogError.Designer.cs">
+      <DependentUpon>frmLogError.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLogs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogs.Designer.cs">
+      <DependentUpon>frmLogs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Versatil\Funcoes\DAOCidades.cs" />
+    <Compile Include="Versatil\Funcoes\DAOOcorrencias.cs" />
+    <Compile Include="Versatil\Funcoes\DAOOcorrenciasContato.cs" />
+    <Compile Include="Versatil\Funcoes\DAOPedidos.cs" />
+    <Compile Include="Versatil\Funcoes\DAOProdutos.cs" />
+    <Compile Include="Versatil\Funcoes\DAOUsuariosSistema.cs" />
+    <Compile Include="Versatil\Models\RetornoWebService.cs" />
+    <Compile Include="Versatil\Models\VerConfiguracao.cs" />
+    <Compile Include="Versatil\Models\VerConsultaCepViaCep.cs" />
+    <Compile Include="Rocky\Model\RKEnderecoEntrega.cs" />
+    <Compile Include="Rocky\Model\List\RKClientePFLista.cs" />
+    <Compile Include="Rocky\Model\List\RKClientePJLista.cs" />
+    <Compile Include="Rocky\Model\RKItems.cs" />
+    <Compile Include="Rocky\Model\List\RKProdutos_VariacoesLista.cs" />
+    <Compile Include="Rocky\Model\List\RKRetornaSku.cs" />
+    <Compile Include="Rocky\Model\List\RKRetornoProduto.cs" />
+    <Compile Include="Rocky\Model\RKPedidos.cs" />
+    <Compile Include="Rocky\Model\List\RKPedidosLista.cs" />
+    <Compile Include="Rocky\Model\RKPessoaFisica.cs" />
+    <Compile Include="Rocky\Model\RKPessoaJuridica.cs" />
+    <Compile Include="Rocky\Model\RKProdutos.cs" />
+    <Compile Include="Rocky\Model\List\RKProdutosLista.cs" />
+    <Compile Include="Rocky\Model\RKSku.cs" />
+    <Compile Include="Rocky\Model\RKSelectProdutos.cs" />
+    <Compile Include="Rocky\Model\RKsku_product_ref.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Versatil\Funcoes\DAOClientes.cs" />
+    <Compile Include="Versatil\Models\VerCidade.cs" />
+    <Compile Include="Versatil\Models\VerColaboradores.cs" />
+    <Compile Include="Versatil\Models\VerContas.cs" />
+    <Compile Include="Versatil\Models\VerContatos.cs" />
+    <Compile Include="Versatil\Models\VerGrupos.cs" />
+    <Compile Include="Versatil\Models\VerItens.cs" />
+    <Compile Include="Versatil\Models\VerOcorrencias.cs" />
+    <Compile Include="Versatil\Models\VerOcorrenciasContatos.cs" />
+    <Compile Include="Versatil\Models\VerPedidos.cs" />
+    <Compile Include="Versatil\Models\VerProdutos.cs" />
+    <Compile Include="Versatil\Models\VerUsuariosSistema.cs" />
+    <Compile Include="Versatil\Services\VerConectionWebService.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLoad.resx">
+      <DependentUpon>frmLoad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLogError.resx">
+      <DependentUpon>frmLogError.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLogs.resx">
+      <DependentUpon>frmLogs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Connected Services\MagentoHLGServices\IntegracaoRockye.MagentoHLGServices.apiEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoHLGServices\IntegracaoRockye.MagentoHLGServices.associativeEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoHLGServices\IntegracaoRockye.MagentoHLGServices.catalogAssignedProduct.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoHLGServices\IntegracaoRockye.MagentoHLGServices.catalogAttributeEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoHLGServices\IntegracaoRockye.MagentoHLGServices.catalogAttributeOptionEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoHLGServices\IntegracaoRockye.MagentoHLGServices.catalogCategoryAttributeCurrentStoreResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoHLGServices\IntegracaoRockye.MagentoHLGServices.catalogCategoryCurrentStoreResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoHLGServices\IntegracaoRockye.MagentoHLGServices.catalogCategoryEntityNoChildren.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoHLGServices\IntegracaoRockye.MagentoHLGServices.catalogCategoryInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoHLGServices\IntegracaoRockye.MagentoHLGServices.catalogCategoryTree.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoHLGServices\IntegracaoRockye.MagentoHLGServices.catalogInventoryStockItemEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoHLGServices\IntegracaoRockye.MagentoHLGServices.catalogProductAttributeCurrentStoreResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoHLGServices\IntegracaoRockye.MagentoHLGServices.catalogProductAttributeEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoHLGServices\IntegracaoRockye.MagentoHLGServices.catalogProductAttributeMediaCurrentStoreResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoHLGServices\IntegracaoRockye.MagentoHLGServices.catalogProductAttributeMediaTypeEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoHLGServices\IntegracaoRockye.MagentoHLGServices.catalogProductAttributeSetEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoHLGServices\IntegracaoRockye.MagentoHLGServices.catalogProductCurrentStoreResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoHLGServices\IntegracaoRockye.MagentoHLGServices.catalogProductCustomOptionInfoEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoHLGServices\IntegracaoRockye.MagentoHLGServices.catalogProductCustomOptionListEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoHLGServices\IntegracaoRockye.MagentoHLGServices.catalogProductCustomOptionTypesEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoHLGServices\IntegracaoRockye.MagentoHLGServices.catalogProductCustomOptionValueInfoEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoHLGServices\IntegracaoRockye.MagentoHLGServices.catalogProductCustomOptionValueListEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoHLGServices\IntegracaoRockye.MagentoHLGServices.catalogProductDownloadableLinkInfoEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoHLGServices\IntegracaoRockye.MagentoHLGServices.catalogProductEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoHLGServices\IntegracaoRockye.MagentoHLGServices.catalogProductImageEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoHLGServices\IntegracaoRockye.MagentoHLGServices.catalogProductLinkAttributeEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoHLGServices\IntegracaoRockye.MagentoHLGServices.catalogProductLinkEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoHLGServices\IntegracaoRockye.MagentoHLGServices.catalogProductListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoHLGServices\IntegracaoRockye.MagentoHLGServices.catalogProductReturnEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoHLGServices\IntegracaoRockye.MagentoHLGServices.catalogProductSpecialPriceReturnEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoHLGServices\IntegracaoRockye.MagentoHLGServices.catalogProductTagInfoEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoHLGServices\IntegracaoRockye.MagentoHLGServices.catalogProductTagListEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoHLGServices\IntegracaoRockye.MagentoHLGServices.catalogProductTierPriceEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoHLGServices\IntegracaoRockye.MagentoHLGServices.catalogProductTypeEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoHLGServices\IntegracaoRockye.MagentoHLGServices.customerAddressEntityItem.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoHLGServices\IntegracaoRockye.MagentoHLGServices.customerCustomerEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoHLGServices\IntegracaoRockye.MagentoHLGServices.customerGroupEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoHLGServices\IntegracaoRockye.MagentoHLGServices.directoryCountryEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoHLGServices\IntegracaoRockye.MagentoHLGServices.directoryRegionEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoHLGServices\IntegracaoRockye.MagentoHLGServices.existsFaltureEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoHLGServices\IntegracaoRockye.MagentoHLGServices.giftMessageResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoHLGServices\IntegracaoRockye.MagentoHLGServices.magentoInfoEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoHLGServices\IntegracaoRockye.MagentoHLGServices.salesOrderCreditmemoEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoHLGServices\IntegracaoRockye.MagentoHLGServices.salesOrderEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoHLGServices\IntegracaoRockye.MagentoHLGServices.salesOrderInvoiceEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoHLGServices\IntegracaoRockye.MagentoHLGServices.salesOrderListEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoHLGServices\IntegracaoRockye.MagentoHLGServices.salesOrderShipmentAddCommentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoHLGServices\IntegracaoRockye.MagentoHLGServices.salesOrderShipmentEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoHLGServices\IntegracaoRockye.MagentoHLGServices.shoppingCartInfoEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoHLGServices\IntegracaoRockye.MagentoHLGServices.shoppingCartLicenseEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoHLGServices\IntegracaoRockye.MagentoHLGServices.shoppingCartPaymentMethodResponseEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoHLGServices\IntegracaoRockye.MagentoHLGServices.shoppingCartShippingMethodEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoHLGServices\IntegracaoRockye.MagentoHLGServices.shoppingCartTotalsEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoHLGServices\IntegracaoRockye.MagentoHLGServices.storeEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoHLGServices\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MagentoHLGServices\Magento.wsdl" />
+    <None Include="Connected Services\MagentoProducaoServices\IntegracaoRockye.MagentoProducaoServices.apiEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoProducaoServices\IntegracaoRockye.MagentoProducaoServices.associativeEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoProducaoServices\IntegracaoRockye.MagentoProducaoServices.catalogAssignedProduct.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoProducaoServices\IntegracaoRockye.MagentoProducaoServices.catalogAttributeEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoProducaoServices\IntegracaoRockye.MagentoProducaoServices.catalogAttributeOptionEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoProducaoServices\IntegracaoRockye.MagentoProducaoServices.catalogCategoryAttributeCurrentStoreResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoProducaoServices\IntegracaoRockye.MagentoProducaoServices.catalogCategoryCurrentStoreResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoProducaoServices\IntegracaoRockye.MagentoProducaoServices.catalogCategoryEntityNoChildren.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoProducaoServices\IntegracaoRockye.MagentoProducaoServices.catalogCategoryInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoProducaoServices\IntegracaoRockye.MagentoProducaoServices.catalogCategoryTree.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoProducaoServices\IntegracaoRockye.MagentoProducaoServices.catalogInventoryStockItemEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoProducaoServices\IntegracaoRockye.MagentoProducaoServices.catalogProductAttributeCurrentStoreResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoProducaoServices\IntegracaoRockye.MagentoProducaoServices.catalogProductAttributeEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoProducaoServices\IntegracaoRockye.MagentoProducaoServices.catalogProductAttributeMediaCurrentStoreResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoProducaoServices\IntegracaoRockye.MagentoProducaoServices.catalogProductAttributeMediaTypeEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoProducaoServices\IntegracaoRockye.MagentoProducaoServices.catalogProductAttributeSetEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoProducaoServices\IntegracaoRockye.MagentoProducaoServices.catalogProductCurrentStoreResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoProducaoServices\IntegracaoRockye.MagentoProducaoServices.catalogProductCustomOptionInfoEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoProducaoServices\IntegracaoRockye.MagentoProducaoServices.catalogProductCustomOptionListEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoProducaoServices\IntegracaoRockye.MagentoProducaoServices.catalogProductCustomOptionTypesEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoProducaoServices\IntegracaoRockye.MagentoProducaoServices.catalogProductCustomOptionValueInfoEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoProducaoServices\IntegracaoRockye.MagentoProducaoServices.catalogProductCustomOptionValueListEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoProducaoServices\IntegracaoRockye.MagentoProducaoServices.catalogProductDownloadableLinkInfoEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoProducaoServices\IntegracaoRockye.MagentoProducaoServices.catalogProductEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoProducaoServices\IntegracaoRockye.MagentoProducaoServices.catalogProductImageEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoProducaoServices\IntegracaoRockye.MagentoProducaoServices.catalogProductLinkAttributeEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoProducaoServices\IntegracaoRockye.MagentoProducaoServices.catalogProductLinkEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoProducaoServices\IntegracaoRockye.MagentoProducaoServices.catalogProductListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoProducaoServices\IntegracaoRockye.MagentoProducaoServices.catalogProductReturnEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoProducaoServices\IntegracaoRockye.MagentoProducaoServices.catalogProductSpecialPriceReturnEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoProducaoServices\IntegracaoRockye.MagentoProducaoServices.catalogProductTagInfoEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoProducaoServices\IntegracaoRockye.MagentoProducaoServices.catalogProductTagListEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoProducaoServices\IntegracaoRockye.MagentoProducaoServices.catalogProductTierPriceEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoProducaoServices\IntegracaoRockye.MagentoProducaoServices.catalogProductTypeEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoProducaoServices\IntegracaoRockye.MagentoProducaoServices.customerAddressEntityItem.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoProducaoServices\IntegracaoRockye.MagentoProducaoServices.customerCustomerEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoProducaoServices\IntegracaoRockye.MagentoProducaoServices.customerGroupEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoProducaoServices\IntegracaoRockye.MagentoProducaoServices.directoryCountryEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoProducaoServices\IntegracaoRockye.MagentoProducaoServices.directoryRegionEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoProducaoServices\IntegracaoRockye.MagentoProducaoServices.existsFaltureEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoProducaoServices\IntegracaoRockye.MagentoProducaoServices.giftMessageResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoProducaoServices\IntegracaoRockye.MagentoProducaoServices.magentoInfoEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoProducaoServices\IntegracaoRockye.MagentoProducaoServices.salesOrderCreditmemoEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoProducaoServices\IntegracaoRockye.MagentoProducaoServices.salesOrderEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoProducaoServices\IntegracaoRockye.MagentoProducaoServices.salesOrderInvoiceEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoProducaoServices\IntegracaoRockye.MagentoProducaoServices.salesOrderListEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoProducaoServices\IntegracaoRockye.MagentoProducaoServices.salesOrderShipmentAddCommentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoProducaoServices\IntegracaoRockye.MagentoProducaoServices.salesOrderShipmentEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoProducaoServices\IntegracaoRockye.MagentoProducaoServices.shoppingCartInfoEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoProducaoServices\IntegracaoRockye.MagentoProducaoServices.shoppingCartLicenseEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoProducaoServices\IntegracaoRockye.MagentoProducaoServices.shoppingCartPaymentMethodResponseEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoProducaoServices\IntegracaoRockye.MagentoProducaoServices.shoppingCartShippingMethodEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoProducaoServices\IntegracaoRockye.MagentoProducaoServices.shoppingCartTotalsEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoProducaoServices\IntegracaoRockye.MagentoProducaoServices.storeEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagentoProducaoServices\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MagentoProducaoServices\Magento1.wsdl" />
+    <None Include="IntegracaoRockye_TemporaryKey.pfx" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\document_exchange.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\index_refresh.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\documents.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\power-symbol %283%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\power-symbol %284%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sem título.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\documents_gear.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6 %28x86 e x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\businessman.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\product.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\money2.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\table_sql_check.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\document_preferences.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\key1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lock_open.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lock.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\export1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Macro\DAO\" />
+    <Folder Include="Tray\DAO\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\box_add.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\document_check.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\earth_view.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\MagentoHLGServices\" />
+    <WCFMetadataStorage Include="Connected Services\MagentoProducaoServices\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\MagentoHLGServices\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\MagentoHLGServices\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\MagentoHLGServices\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\MagentoProducaoServices\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\MagentoProducaoServices\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\MagentoProducaoServices\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\magento-logo.png" />
+    <Content Include="Resources\magento.ico" />
+    <Content Include="Resources\Ícone Alta Resolução.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este projeto faz referência a pacotes do NuGet que não estão presentes neste computador. Use a Restauração de Pacotes do NuGet para baixá-los.  Para obter mais informações, consulte http://go.microsoft.com/fwlink/?LinkID=322105. O arquivo ausente é {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+</Project>
